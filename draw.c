@@ -27,6 +27,9 @@ void add_polygon( struct matrix *polygons,
                   double x0, double y0, double z0, 
                   double x1, double y1, double z1, 
                   double x2, double y2, double z2 ) {
+  add_edge(polygons, x0, y0, z0, x1, y1, z1);
+  add_edge(polygons, x2, y2, z2, x1, y1, z1);
+  add_edge(polygons, x0, y0, z0, x2, y2, z2);
 }
 
 /*======== void draw_polygons() ==========
@@ -39,6 +42,7 @@ void add_polygon( struct matrix *polygons,
   triangles
   ====================*/
 void draw_polygons( struct matrix *polygons, screen s, color c ) {
+  draw_lines(polygons, s, c);
 }
 
 
